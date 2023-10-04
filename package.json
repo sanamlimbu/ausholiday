@@ -1,0 +1,24 @@
+{
+  "name": "ausholiday",
+  "version": "1.0.0",
+  "description": "Western Australia Public Holiday and Date Calculation Utilities",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sanamlimbu/ausholiday.git"
+  },
+  "keywords": [
+    "western-australia",
+    "public-holidays",
+    "date-utilities"
+  ],
+  "author": "Sanam Limbu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sanamlimbu/ausholiday/issues"
+  },
+  "homepage": "https://github.com/sanamlimbu/ausholiday#readme"
+}
