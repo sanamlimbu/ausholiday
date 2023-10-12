@@ -1,8 +1,8 @@
 {
   "name": "ausholiday",
   "version": "1.0.0",
-  "description": "Western Australia Public Holiday and Date Calculation Utilities",
-  "main": "index.js",
+  "description": "Australia public holidays and business days calculation utilities.",
+  "main": "./src/index.js",
   "scripts": {
     "test": "jest"
   },
@@ -11,14 +11,25 @@
     "url": "git+https://github.com/sanamlimbu/ausholiday.git"
   },
   "keywords": [
-    "western-australia",
     "public-holidays",
-    "date-utilities"
+    "date-utilities",
+    "working-days",
+    "australia",
+    "au",
+    "state",
+    "territories",
+    "util",
+    "stdlib",
+    "modules"
   ],
   "author": "Sanam Limbu",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/sanamlimbu/ausholiday/issues"
   },
-  "homepage": "https://github.com/sanamlimbu/ausholiday#readme"
+  "homepage": "https://github.com/sanamlimbu/ausholiday#readme",
+  "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.23.0",
+    "jest": "^29.7.0"
+  }
 }
