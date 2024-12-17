@@ -1,0 +1,37 @@
+{
+  "name": "ausholiday",
+  "version": "1.0.0",
+  "description": "Australian states and territories public holidays",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sanamlimbu/ausholiday.git"
+  },
+  "keywords": [
+    "australia",
+    "public holidays"
+  ],
+  "author": "Sanam Limbu <sudosanam@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sanamlimbu/ausholiday/issues"
+  },
+  "homepage": "https://github.com/sanamlimbu/ausholiday#readme",
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2"
+  }
+}
