@@ -524,10 +524,9 @@ export function isWeekend(date: Date): boolean {
  */
 function isDateInRange(date: Date) {
   const currentYear = new Date().getFullYear();
-  const nextYear = currentYear + 1;
 
-  const start = new Date(currentYear, 0, 1);
-  const end = new Date(nextYear, 11, 31, 23, 59, 59, 999);
+  const start = new Date(currentYear - 1, 0, 1);
+  const end = new Date(currentYear + 1, 11, 31, 23, 59, 59, 999);
 
   return date >= start && date <= end;
 }

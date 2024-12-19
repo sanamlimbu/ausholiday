@@ -112,10 +112,9 @@ function isValidAndInRange(date: string): boolean {
   }
 
   const currentYear = new Date().getFullYear();
-  const nextYear = currentYear + 1;
 
-  const start = new Date(currentYear, 0, 1);
-  const end = new Date(nextYear, 11, 31);
+  const start = new Date(currentYear - 1, 0, 1);
+  const end = new Date(currentYear + 1, 11, 31);
 
   return dateInput >= start && dateInput <= end;
 }
