@@ -496,7 +496,7 @@ function getKey(date: Date): string {
   const dayStr = day < 10 ? '0' + day : '' + day;
   const monthStr = month < 10 ? '0' + month : '' + month;
 
-  return `${dayStr}${monthStr}${year}`;
+  return `${year}${monthStr}${dayStr}`;
 }
 
 /**
