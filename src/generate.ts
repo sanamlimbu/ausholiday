@@ -14,6 +14,7 @@ const JURISDICTIONS = new Set([
 ]);
 
 interface CSVRow {
+  sn: number;
   date: string;
   name: string;
   jurisdiction: string;
@@ -43,7 +44,13 @@ async function generateMap(inputFile: string, outputFile: string) {
 
   csvData.forEach((data) => {
     if (!isValidJurisdiction(data.jurisdiction)) {
-      throw new Error(`Invalid jurisdiction: ${data.jurisdiction}`);
+      throw new Error(
+        `Invalid jurisdiction: ${data.jurisdiction} at SN: ${data.sn}`
+      );
+    }
+
+    if (!isValidAndInRange(data.date)) {
+      throw new Error(`Invalid date: ${data.date} at SN: ${data.sn}`);
     }
 
     const jurisdiction = data.jurisdiction.toUpperCase();
@@ -84,6 +91,33 @@ function getMapEntries(holidays: Holiday[]): string[] {
 
 function isValidJurisdiction(jurisdiction: string): boolean {
   return JURISDICTIONS.has(jurisdiction);
+}
+
+function isValidAndInRange(date: string): boolean {
+  // Regular expression to match the 'YYYYMMDD' format.
+  const regex = /^\d{8}$/;
+
+  if (!regex.test(date)) {
+    return false;
+  }
+
+  const year = parseInt(date.substring(0, 4), 10);
+  const month = parseInt(date.substring(4, 6), 10);
+  const day = parseInt(date.substring(6, 8), 10);
+
+  const dateInput = new Date(`${year}/${month}/${day}`);
+
+  if (isNaN(dateInput.getTime())) {
+    return false;
+  }
+
+  const currentYear = new Date().getFullYear();
+  const nextYear = currentYear + 1;
+
+  const start = new Date(currentYear, 0, 1);
+  const end = new Date(nextYear, 11, 31);
+
+  return dateInput >= start && dateInput <= end;
 }
 
 const inputCSV = path.resolve(__dirname, 'data.csv');
