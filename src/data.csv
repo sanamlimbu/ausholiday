@@ -1,104 +1,203 @@
-﻿sn,date,name,jurisdiction
-1,20250101,New Year's Day,act
-2,20250127,Australia Day,act
-3,20250310,Canberra Day,act
-4,20250418,Good Friday,act
-5,20250419,Easter Saturday - the day after Good Friday,act
-6,20250420,Easter Sunday,act
-7,20250421,Easter Monday,act
-8,20250425,ANZAC Day,act
-9,20250602,Reconciliation Day,act
-10,20250609,King's Birthday,act
-11,20251006,Labour Day,act
-12,20251225,Christmas Day,act
-13,20251226,Boxing Day,act
-14,20250101,New Year's Day,nsw
-15,20250127,Australia Day,nsw
-16,20250418,Good Friday,nsw
-17,20250419,Easter Saturday,nsw
-18,20250420,Easter Sunday,nsw
-19,20250421,Easter Monday,nsw
-20,20250425,Anzac Day,nsw
-21,20250609,King's Birthday,nsw
-22,20250804,Bank Holiday,nsw
-23,20251006,Labour Day,nsw
-24,20251225,Christmas Day,nsw
-25,20251226,Boxing Day,nsw
-26,20250101,New Year's Day,nt
-27,20250127,Australia Day,nt
-28,20250418,Good Friday,nt
-29,20250419,Easter Saturday,nt
-30,20250420,Easter Sunday,nt
-31,20250421,Easter Monday,nt
-32,20250425,Anzac Day,nt
-33,20250505,May Day,nt
-34,20250609,King's Birthday,nt
-35,20250704,Alice Springs Show Day,nt
-36,20250711,Tennant Creek Show Day,nt
-37,20250718,Katherine Show Day,nt
-38,20250725,Darwin Show Day,nt
-39,20250804,Picnic Day,nt
-40,20251224,Christmas Eve - part day holiday,nt
-41,20251225,Christmas Day,nt
-42,20251226,Boxing Day,nt
-43,20251231,New Year's Eve - part day holiday,nt
-44,20250101,New Year's Day,qld
-45,20250127,Australia Day,qld
-46,20250418,Good Friday,qld
-47,20250419,The day after Good Friday,qld
-48,20250420,Easter Sunday,qld
-49,20250421,Easter Monday,qld
-50,20250425,Anzac Day,qld
-51,20250505,Labour Day,qld
-52,20250813,Royal Queensland Show (Brisbane area only),qld
-53,20251006,King's Birthday,qld
-54,20251224,Christmas Eve (24 December) 6pm - midnight,qld
-55,20251225,Christmas Day,qld
-56,20251226,Boxing Day,qld
-57,20250101,New Years Day,sa
-58,20250127,Australia Day public holiday,sa
-59,20250310,Adelaide Cup Day,sa
-60,20250418,Good Friday,sa
-61,20250419,Easter Saturday,sa
-62,20250420,Easter Sunday,sa
-63,20250421,Easter Monday,sa
-64,20250425,ANZAC Day,sa
-65,20250609,Kings Birthday,sa
-66,20251006,Labour Day,sa
-67,20251224,Christmas Eve: 7pm to midnight,sa
-68,20251225,Christmas Day,sa
-69,20251226,Proclamation Day holiday and Boxing Day,sa
-70,20251231,New Years Eve: 7pm to midnight,sa
-71,20250101,New Year's Day,tas
-72,20250127,Australia Day,tas
-73,20250310,Eight Hours Day,tas
-74,20250418,Good Friday,tas
-75,20250421,Easter Monday,tas
-76,20250422,Easter Tuesday - generally Tasmanian Public Service only,tas
-77,20250425,ANZAC Day,tas
-78,20250609,King's Birthday,tas
-79,20251225,Christmas Day,tas
-80,20251226,Boxing Day,tas
-81,20250101,New Year's Day,vic
-82,20250127,Australia Day,vic
-83,20250310,Labour Day,vic
-84,20250418,Good Friday,vic
-85,20250419,Saturday before Easter Sunday,vic
-86,20250420,Easter Sunday,vic
-87,20250421,Easter Monday,vic
-88,20250425,ANZAC Day,vic
-89,20250609,King's Birthday,vic
-90,20251104,Melbourne Cup,vic
-91,20251225,Christmas Day,vic
-92,20251226,Boxing Day,vic
-93,20250101,New Year's Day,wa
-94,20250127,Australia Day,wa
-95,20250303,Labour Day,wa
-96,20250418,Good Friday,wa
-97,20250420,Easter Sunday,wa
-98,20250421,Easter Monday,wa
-99,20250425,Anzac Day,wa
-100,20250602,Western Australia Day,wa
-101,20250929,King's Birthday,wa
-102,20251225,Christmas Day,wa
-103,20251226,Boxing Day,wa
+sn,date,name,jurisdiction
+1,20240101,New Year's Day,act
+2,20240126,Australia Day,act
+3,20240311,Canberra Day,act
+4,20240329,Good Friday,act
+5,20240330,Easter Saturday - the day after Good Friday,act
+6,20240331,Easter Sunday,act
+7,20240401,Easter Monday,act
+8,20240425,Anzac Day,act
+9,20240527,Reconciliation Day,act
+10,20240610,Sovereign's Birthday,act
+11,20241007,Labour Day,act
+12,20241225,Christmas Day ,act
+13,20241226,Boxing Day,act
+14,20240101,New Year's Day,nsw
+15,20240126,Australia Day,nsw
+16,20240329,Good Friday,nsw
+17,20240330,Easter Saturday,nsw
+18,20240331,Easter Sunday,nsw
+19,20240401,Easter Monday,nsw
+20,20240425,Anzac Day,nsw
+21,20240610,King's Birthday,nsw
+22,20240805,Bank Holiday,nsw
+23,20241007,Labour Day,nsw
+24,20241225,Christmas Day ,nsw
+25,20241226,Boxing Day,nsw
+26,20240101,New Year's Day,nt
+27,20240126,Australia Day,nt
+28,20240329,Good Friday,nt
+29,20240330,Easter Saturday,nt
+30,20240331,Easter Sunday,nt
+31,20240401,Easter Monday,nt
+32,20240425,Anzac Day,nt
+33,20240506,May Day,nt
+34,20240610,King's Birthday,nt
+35,20240805,Picnic Day,nt
+36,20241224,Christmas Eve,nt
+37,20241225,Christmas Day ,nt
+38,20241226,Boxing Day,nt
+39,20241231,New Year's Eve,nt
+40,20240101,New Year's Day,qld
+41,20240126,Australia Day,qld
+42,20240329,Good Friday,qld
+43,20240330,Easter Saturday,qld
+44,20240331,Easter Sunday,qld
+45,20240401,Easter Monday,qld
+46,20240425,Anzac Day,qld
+47,20240506,Labour Day,qld
+48,20240814,Royal Queensland Show (Brisbane only),qld
+49,20241007,King’s Birthday,qld
+50,20241224,Christmas Eve,qld
+51,20241225,Christmas Day ,qld
+52,20241226,Boxing Day,qld
+53,20240101,New Year's Day,sa
+54,20240126,Australia Day,sa
+55,20240311,Adelaide Cup Day (subject to Proclamation),sa
+56,20240329,Good Friday,sa
+57,20240330,Easter Saturday,sa
+58,20240401,Easter Monday,sa
+59,20240425,Anzac Day,sa
+60,20240610,King’s Birthday,sa
+61,20241007,Labour Day,sa
+62,20241224,Christmas Eve,sa
+63,20241225,Christmas Day ,sa
+64,20241226,Boxing Day / Proclamation Day,sa
+65,20241231,New Year's Eve,sa
+66,20240101,New Year's Day,tas
+67,20240126,Australia Day,tas
+68,20240311,Eight Hours Day,tas
+69,20240329,Good Friday,tas
+70,20240401,Easter Monday,tas
+71,20240402,Easter Tuesday,tas
+72,20240425,Anzac Day,tas
+73,20240610,King's Birthday,tas
+74,20241225,Christmas Day ,tas
+75,20241226,Boxing Day,tas
+76,20240101,New Year's Day,vic
+77,20240126,Australia Day,vic
+78,20240311,Labour Day,vic
+79,20240329,Good Friday,vic
+80,20240330,Easter Saturday,vic
+81,20240331,Easter Sunday,vic
+82,20240401,Easter Monday,vic
+83,20240425,Anzac Day,vic
+84,20240610,King's Birthday,vic
+85,20240927,Friday before the AFL Grand Final,vic
+86,20241105,Melbourne Cup,vic
+87,20241225,Christmas Day ,vic
+88,20241226,Boxing Day,vic
+89,20240101,New Year's Day,wa
+90,20240126,Australia Day,wa
+91,20240304,Labour Day,wa
+92,20240329,Good Friday,wa
+93,20240331,Easter Sunday,wa
+94,20240401,Easter Monday,wa
+95,20240425,Anzac Day,wa
+96,20240603,Western Australia Day,wa
+97,20240923,King's Birthday,wa
+98,20241225,Christmas Day ,wa
+99,20241226,Boxing Day,wa
+100,20250101,New Year's Day,act
+101,20250127,Australia Day,act
+102,20250310,Canberra Day,act
+103,20250418,Good Friday,act
+104,20250419,Easter Saturday - the day after Good Friday,act
+105,20250420,Easter Sunday,act
+106,20250421,Easter Monday,act
+107,20250425,ANZAC Day,act
+108,20250602,Reconciliation Day,act
+109,20250609,King's Birthday,act
+110,20251006,Labour Day,act
+111,20251225,Christmas Day,act
+112,20251226,Boxing Day,act
+113,20250101,New Year's Day,nsw
+114,20250127,Australia Day,nsw
+115,20250418,Good Friday,nsw
+116,20250419,Easter Saturday,nsw
+117,20250420,Easter Sunday,nsw
+118,20250421,Easter Monday,nsw
+119,20250425,Anzac Day,nsw
+120,20250609,King's Birthday,nsw
+121,20250804,Bank Holiday,nsw
+122,20251006,Labour Day,nsw
+123,20251225,Christmas Day,nsw
+124,20251226,Boxing Day,nsw
+125,20250101,New Year's Day,nt
+126,20250127,Australia Day,nt
+127,20250418,Good Friday,nt
+128,20250419,Easter Saturday,nt
+129,20250420,Easter Sunday,nt
+130,20250421,Easter Monday,nt
+131,20250425,Anzac Day,nt
+132,20250505,May Day,nt
+133,20250609,King's Birthday,nt
+134,20250704,Alice Springs Show Day,nt
+135,20250711,Tennant Creek Show Day,nt
+136,20250718,Katherine Show Day,nt
+137,20250725,Darwin Show Day,nt
+138,20250804,Picnic Day,nt
+139,20251224,Christmas Eve - part day holiday,nt
+140,20251225,Christmas Day,nt
+141,20251226,Boxing Day,nt
+142,20251231,New Year's Eve - part day holiday,nt
+143,20250101,New Year's Day,qld
+144,20250127,Australia Day,qld
+145,20250418,Good Friday,qld
+146,20250419,The day after Good Friday,qld
+147,20250420,Easter Sunday,qld
+148,20250421,Easter Monday,qld
+149,20250425,Anzac Day,qld
+150,20250505,Labour Day,qld
+151,20250813,Royal Queensland Show (Brisbane area only),qld
+152,20251006,King's Birthday,qld
+153,20251224,Christmas Eve (24 December) 6pm - midnight,qld
+154,20251225,Christmas Day,qld
+155,20251226,Boxing Day,qld
+156,20250101,New Years Day,sa
+157,20250127,Australia Day public holiday,sa
+158,20250310,Adelaide Cup Day,sa
+159,20250418,Good Friday,sa
+160,20250419,Easter Saturday,sa
+161,20250420,Easter Sunday,sa
+162,20250421,Easter Monday,sa
+163,20250425,ANZAC Day,sa
+164,20250609,Kings Birthday,sa
+165,20251006,Labour Day,sa
+166,20251224,Christmas Eve: 7pm to midnight,sa
+167,20251225,Christmas Day,sa
+168,20251226,Proclamation Day holiday and Boxing Day,sa
+169,20251231,New Years Eve: 7pm to midnight,sa
+170,20250101,New Year's Day,tas
+171,20250127,Australia Day,tas
+172,20250310,Eight Hours Day,tas
+173,20250418,Good Friday,tas
+174,20250421,Easter Monday,tas
+175,20250422,Easter Tuesday - generally Tasmanian Public Service only,tas
+176,20250425,ANZAC Day,tas
+177,20250609,King's Birthday,tas
+178,20251225,Christmas Day,tas
+179,20251226,Boxing Day,tas
+180,20250101,New Year's Day,vic
+181,20250127,Australia Day,vic
+182,20250310,Labour Day,vic
+183,20250418,Good Friday,vic
+184,20250419,Saturday before Easter Sunday,vic
+185,20250420,Easter Sunday,vic
+186,20250421,Easter Monday,vic
+187,20250425,ANZAC Day,vic
+188,20250609,King's Birthday,vic
+189,20251104,Melbourne Cup,vic
+190,20251225,Christmas Day,vic
+191,20251226,Boxing Day,vic
+192,20250101,New Year's Day,wa
+193,20250127,Australia Day,wa
+194,20250303,Labour Day,wa
+195,20250418,Good Friday,wa
+196,20250420,Easter Sunday,wa
+197,20250421,Easter Monday,wa
+198,20250425,Anzac Day,wa
+199,20250602,Western Australia Day,wa
+200,20250929,King's Birthday,wa
+201,20251225,Christmas Day,wa
+202,20251226,Boxing Day,wa
