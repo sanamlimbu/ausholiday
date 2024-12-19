@@ -1,6 +1,7 @@
 ## ausholiday
 
 `ausholiday` package provides a set of utility functions that handles Australian public holidays.
+
 **Note: Package only handles last year, current year and next year Australian public holidays.**
 
 ## Installation
