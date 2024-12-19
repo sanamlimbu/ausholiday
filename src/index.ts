@@ -522,7 +522,7 @@ export function isWeekend(date: Date): boolean {
  * @param {Date} date - The date to be evaluated.
  * @returns {boolean} - Returns true if the date is within the specified range; otherwise, false.
  */
-export function isDateInRange(date: Date) {
+function isDateInRange(date: Date) {
   const currentYear = new Date().getFullYear();
   const nextYear = currentYear + 1;
 
