@@ -1,19 +1,42 @@
-import { ACTPublicHolidays } from './act';
-import { getDayMonthYear, getKey, isWeekend } from './helpers';
-import { NSWPublicHolidays } from './nsw';
-import { NTPublicHolidays } from './nt';
-import { QLDPublicHolidays } from './qld';
-import { SAPublicHolidays } from './sa';
-import { TASPublicHolidays } from './tas';
-import { Jurisdiction } from './types';
-import { VICPublicHolidays } from './vic';
-import { WAPublicHolidays } from './wa';
+import {
+  ACTPublicHolidays,
+  NSWPublicHolidays,
+  NTPublicHolidays,
+  QLDPublicHolidays,
+  SAPublicHolidays,
+  TASPublicHolidays,
+  VICPublicHolidays,
+  WAPublicHolidays,
+} from './data';
 
-// isPublicHoliday returns true if given date is public holiday in given jurisdiction.
+// All states and territories in Australia.
+export enum Jurisdiction {
+  NSW = 'New South Wales',
+  VIC = 'Victoria',
+  QLD = 'Queensland',
+  SA = 'South Australia',
+  WA = 'Western Australia',
+  TAS = 'Tasmania',
+  ACT = 'Asutralian Capital Territory',
+  NT = 'Norethern Territory',
+}
+
+/**
+ * Determines whether a given date is a public holiday in the specified jurisdiction.
+ *
+ * @param {Date} date - The date to be checked.
+ * @param {Jurisdiction} jurisdiction - The jurisdiction to consider for public holidays.
+ * @returns {boolean} - Returns `true` if the date is a public holiday in the specified jurisdiction; otherwise, `false`.
+ * @throws {Error} - Throws an error if the provided jurisdiction is invalid or date is out of range.
+ */
 export function isPublicHoliday(
   date: Date,
   jurisdiction: Jurisdiction
 ): boolean {
+  if (!isDateInRange(date)) {
+    throw new Error(`Date out of range: ${date.toString()}`);
+  }
+
   const key = getKey(date);
 
   switch (jurisdiction) {
@@ -34,7 +57,6 @@ export function isPublicHoliday(
       return value !== undefined;
     }
     case Jurisdiction.WA: {
-      console.log(key);
       const value = WAPublicHolidays.get(key);
       return value !== undefined;
     }
@@ -51,22 +73,34 @@ export function isPublicHoliday(
       return value !== undefined;
     }
     default:
-      throw new Error(`invalid jurisdiction: ${jurisdiction}`);
+      throw new Error(`Invalid jurisdiction: ${jurisdiction}`);
   }
 }
 
-// numberOfPublicHolidays returns number of public holidays between given dates.
-// Both dates are inclusive.
+/**
+ * Calculates the total number of public holidays between the specified start and end dates, inclusive.
+ *
+ * @param {Date} start - The starting date of the range to check for public holidays.
+ * @param {Date} end - The ending date of the range to check for public holidays.
+ * @param {Jurisdiction} jurisdiction - The jurisdiction whose public holidays should be considered.
+ * @returns {number} - The number of public holidays within the given date range.
+ * @throws {Error} - Throws an error if the provided jurisdiction is invalid or dates are out of range.
+ */
 export function numberOfPublicHolidays(
   start: Date,
   end: Date,
   jurisdiction: Jurisdiction
 ): number {
-  const startDMY = getDayMonthYear(start);
-  const endDMY = getDayMonthYear(end);
+  if (!isDateInRange(start)) {
+    throw new Error(`Date out of range: ${start}`);
+  }
 
-  start = new Date(startDMY.year, startDMY.month, startDMY.day, 0, 0, 0, 0);
-  end = new Date(endDMY.year, endDMY.month, endDMY.day, 0, 0, 0, 0);
+  if (!isDateInRange(end)) {
+    throw new Error(`Date out of range: ${end}`);
+  }
+
+  start = new Date(start.getFullYear(), start.getMonth(), start.getDate());
+  end = new Date(end.getFullYear(), end.getMonth(), end.getDate());
 
   const current = start;
 
@@ -123,7 +157,7 @@ export function numberOfPublicHolidays(
         break;
       }
       default:
-        throw new Error(`invalid jurisdiction: ${jurisdiction}`);
+        throw new Error(`Invalid jurisdiction: ${jurisdiction}`);
     }
 
     current.setDate(current.getDate() + 1);
@@ -132,18 +166,32 @@ export function numberOfPublicHolidays(
   return count;
 }
 
-// numberOfWorkingDays returns number of working days between given dates.
-// Both dates are inclusive.
+/**
+ * Calculates the number of working days between the specified start and end dates, inclusive.
+ * A working day is considered any day that is not a weekend or a public holiday, based on the provided jurisdiction.
+ *
+ * @param {Date} start - The starting date of the range to check for working days.
+ * @param {Date} end - The ending date of the range to check for working days.
+ * @param {Jurisdiction} jurisdiction - The jurisdiction whose public holidays should be considered.
+ * @returns {number} - The total number of working days within the given date range.
+ * @throws {Error} - Throws an error if the provided jurisdiction is invalid or dates are out of range.
+ */
+
 export function numberOfWorkingDays(
   start: Date,
   end: Date,
   jurisdiction: Jurisdiction
 ): number {
-  const startDMY = getDayMonthYear(start);
-  const endDMY = getDayMonthYear(end);
+  if (!isDateInRange(start)) {
+    throw new Error(`Date out of range: ${start}`);
+  }
 
-  start = new Date(startDMY.year, startDMY.month, startDMY.day, 0, 0, 0, 0);
-  end = new Date(endDMY.year, endDMY.month, endDMY.day, 0, 0, 0, 0);
+  if (!isDateInRange(end)) {
+    throw new Error(`Date out of range: ${end}`);
+  }
+
+  start = new Date(start.getFullYear(), start.getMonth(), start.getDate());
+  end = new Date(end.getFullYear(), end.getMonth(), end.getDate());
 
   const current = start;
 
@@ -215,7 +263,7 @@ export function numberOfWorkingDays(
         break;
       }
       default:
-        throw new Error(`invalid jurisdiction: ${jurisdiction}`);
+        throw new Error(`Invalid jurisdiction: ${jurisdiction}`);
     }
 
     current.setDate(current.getDate() + 1);
@@ -224,14 +272,17 @@ export function numberOfWorkingDays(
   return count;
 }
 
-// numberOfWeekDays returns number of weekdays between given dates.
-// Both dates are inclusive.
+/**
+ * Calculates the number of weekdays (Monday to Friday) between the specified start and end dates, inclusive.
+ * Weekdays are considered any day that is not a weekend (Saturday or Sunday).
+ *
+ * @param {Date} start - The starting date of the range to check for weekdays.
+ * @param {Date} end - The ending date of the range to check for weekdays.
+ * @returns {number} - The total number of weekdays within the given date range.
+ */
 export function numberOfWeekDays(start: Date, end: Date): number {
-  const startDMY = getDayMonthYear(start);
-  const endDMY = getDayMonthYear(end);
-
-  start = new Date(startDMY.year, startDMY.month, startDMY.day, 0, 0, 0, 0);
-  end = new Date(endDMY.year, endDMY.month, endDMY.day, 0, 0, 0, 0);
+  start = new Date(start.getFullYear(), start.getMonth(), start.getDate());
+  end = new Date(end.getFullYear(), end.getMonth(), end.getDate());
 
   const current = start;
 
@@ -247,18 +298,31 @@ export function numberOfWeekDays(start: Date, end: Date): number {
   return count;
 }
 
-// isTherePublicHoliday returns true if there is public holiday between given dates.
-// Given dates are inclusive.
+/**
+ * Checks if there is a public holiday between the given start and end dates (inclusive) for a specified jurisdiction.
+ * Returns true if there is at least one public holiday within the date range, otherwise returns false.
+ *
+ * @param {Date} start - The start date of the range.
+ * @param {Date} end - The end date of the range.
+ * @param {Jurisdiction} jurisdiction - The jurisdiction to check for public holidays.
+ * @returns {boolean} - True if there is at least one public holiday within the date range, false otherwise.
+ * @throws {Error} - Throws an error if the provided jurisdiction is invalid or dates are out of range.
+ */
 export function isTherePublicHoliday(
   start: Date,
   end: Date,
   jurisdiction: Jurisdiction
 ): boolean {
-  const startDMY = getDayMonthYear(start);
-  const endDMY = getDayMonthYear(end);
+  if (!isDateInRange(start)) {
+    throw new Error(`Date out of range: ${start}`);
+  }
 
-  start = new Date(startDMY.year, startDMY.month, startDMY.day, 0, 0, 0, 0);
-  end = new Date(endDMY.year, endDMY.month, endDMY.day, 0, 0, 0, 0);
+  if (!isDateInRange(end)) {
+    throw new Error(`Date out of range: ${end}`);
+  }
+
+  start = new Date(start.getFullYear(), start.getMonth(), start.getDate());
+  end = new Date(end.getFullYear(), end.getMonth(), end.getDate());
 
   const current = start;
 
@@ -313,22 +377,31 @@ export function isTherePublicHoliday(
         break;
       }
       default:
-        throw new Error(`invalid jurisdiction: ${jurisdiction}`);
+        throw new Error(`Invalid jurisdiction: ${jurisdiction}`);
     }
   }
 
   return false;
 }
 
-// dateAfterWorkingDays returns date after given working days.
-// Given date is exclusive.
+/**
+ * Calculates the date after adding a specified number of working days to a given date,
+ * considering weekends and public holidays specific to a jurisdiction.
+ *
+ * @param {Date} date - The starting date to which working days will be added.
+ * @param {number} after - The number of working days to add.
+ * @param {Jurisdiction} jurisdiction - The jurisdiction to consider for public holidays.
+ * @returns {Date} The resulting date after adding the specified number of working days.
+ * @throws {Error} - Throws an error if the provided jurisdiction is invalid or date is out of range.
+ */
 export function dateAfterWorkingDays(
   date: Date,
   after: number,
   jurisdiction: Jurisdiction
 ): Date {
-  const dateDMY = getDayMonthYear(date);
-  date = new Date(dateDMY.year, dateDMY.month, dateDMY.day, 0, 0, 0, 0);
+  if (!isDateInRange(date)) {
+    throw new Error(`Date out of range: ${date.toString()}`);
+  }
 
   const current = date;
   let i = 0;
@@ -399,11 +472,62 @@ export function dateAfterWorkingDays(
         break;
       }
       default:
-        throw new Error(`invalid jurisdiction: ${jurisdiction}`);
+        throw new Error(`Invalid jurisdiction: ${jurisdiction}`);
     }
 
     current.setDate(current.getDate() + 1);
   }
 
   return current;
+}
+
+/**
+ * Generates a string key in the 'DDMMYYYY' format from the given date.
+ * This key is used for efficient lookup in public holiday maps.
+ *
+ * @param {Date} date - The date to convert.
+ * @returns {string} - A string representing the date in 'DDMMYYYY' format.
+ */
+function getKey(date: Date): string {
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+
+  const dayStr = day < 10 ? '0' + day : '' + day;
+  const monthStr = month < 10 ? '0' + month : '' + month;
+
+  return `${dayStr}${monthStr}${year}`;
+}
+
+/**
+ * Determines whether the given date falls on a weekend (Saturday or Sunday).
+ *
+ * @param {Date} date - The date to check.
+ * @returns {boolean} - Returns `true` if the date is a Saturday or Sunday; otherwise, `false`.
+ */
+export function isWeekend(date: Date): boolean {
+  const day = date.getDay();
+
+  if (day === 0 || day === 6) {
+    return true;
+  }
+
+  return false;
+}
+
+/**
+ * Determines whether a given date falls within the range from January 1st of the current year
+ * to December 31st of the next year.
+ *
+ * @param {Date} date - The date to be evaluated.
+ * @returns {boolean} - Returns true if the date is within the specified range; otherwise, false.
+ */
+export function isDateInRange(date: Date) {
+  const currentYear = new Date().getFullYear();
+  const nextYear = currentYear + 1;
+
+  const start = new Date(currentYear, 0, 1);
+  const end = new Date(nextYear, 11, 31, 23, 59, 59, 999);
+
+  return date >= start && date <= end;
 }
